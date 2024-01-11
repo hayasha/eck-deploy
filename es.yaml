@@ -9,6 +9,9 @@ spec:
     tls:
       selfSignedCertificate:
         disabled: true
+  resources:
+    requests:
+      storage: 10Gi
   nodeSets:
     - name: default-worker
       count: 3
