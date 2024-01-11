@@ -24,7 +24,7 @@ spec:
               - ReadWriteOnce
             resources:
               requests:
-                storage: 10Gi
+                storage: 30Gi
             storageClassName: sc-default
       config:
         node.roles: [ 'master', 'data', 'ingest', 'ml' ]
@@ -39,10 +39,10 @@ spec:
                 resources:
                   limits:
                     cpu: '1'
-                    memory: 2Gi
+                    memory: 4Gi
                   requests:
                     cpu: '100m'
-                    memory: 2Gi
+                    memory: 4Gi
             initContainers:
               - name: sysctl
                 securityContext:
