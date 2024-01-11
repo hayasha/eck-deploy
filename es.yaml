@@ -14,7 +14,7 @@ spec:
       selfSignedCertificate:
         disabled: true
   nodeSets:
-    - name: ecktestnodesets
+    - name: default-worker
       count: 3
       volumeClaimTemplates:
         - metadata:
