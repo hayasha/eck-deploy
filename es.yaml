@@ -1,11 +1,11 @@
 apiVersion: elasticsearch.k8s.elastic.co/v1
 kind: Elasticsearch
 metadata:
-  name: es-testing
+  name: estesting
 spec:
   version: 8.11.4
   nodeSets:
-    - name: es-nodeSets
+    - name: esnodeSets
       count: 1
       config:
         node.store.allow_mmap: false
