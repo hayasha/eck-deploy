@@ -1,1 +1,59 @@
-test
+apiVersion: elasticsearch.k8s.elastic.co/v1
+kind: Elasticsearch
+metadata:
+  name: eck-test
+  namespace: momguide-eck
+  labels:
+    app: prod-es
+    role: production
+    tier: backend
+spec:
+  version: 8.11.4
+  http:
+    tls:
+      selfSignedCertificate:
+        disabled: true
+  nodeSets:
+    - name: eck-test
+      count: 3
+      volumeClaimTemplates:
+        - metadata:
+            name: elasticsearch-data
+          spec:
+            accessModes:
+              - ReadWriteOnce
+            resources:
+              requests:
+                storage: 150Gi
+            storageClassName: sc-default
+      config:
+        node.roles: [ 'master', 'data', 'ingest', 'ml' ]
+        node.store.allow_mmap: false
+        podTemplate:
+          spec:
+            containers:
+              - name: elasticsearch
+                env:
+                  - name: ES_JAVA_OPTS
+                    value: '-Xms2g -Xmx2g'
+                resources:
+                  limits:
+                    cpu: '1'
+                    memory: 4Gi
+                  requests:
+                    cpu: '100m'
+                    memory: 4Gi
+            initContainers:
+              - name: sysctl
+                securityContext:
+                  privileged: true
+                  runAsUser: 0
+                command: [ 'sh', '-c', 'sysctl -w vm.max_map_count=262144' ]
+              - name: chown-data-volumes
+                command: [ 'sh', '-c', 'chown elasticsearch:elasticsearch /usr/share/elasticsearch/data' ]
+              - name: install-repository-nori
+                command:
+                  - sh
+                  - -c
+                  - |
+                    bin/elasticsearch-plugin install --batch analysis-nori
