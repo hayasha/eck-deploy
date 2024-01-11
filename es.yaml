@@ -5,7 +5,7 @@ metadata:
 spec:
   version: 8.11.4
   nodeSets:
-    - name: esnodeSets
+    - name: esnodeeets
       count: 1
       config:
         node.store.allow_mmap: false
