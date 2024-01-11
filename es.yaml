@@ -24,7 +24,7 @@ spec:
               - ReadWriteOnce
             resources:
               requests:
-                storage: 30Gi
+                storage: 150Gi
             storageClassName: sc-default
       config:
         node.roles: [ 'master', 'data', 'ingest', 'ml' ]
