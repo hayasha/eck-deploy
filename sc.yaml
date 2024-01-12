@@ -25,4 +25,4 @@ spec:
   csi:
     driver: cinder.csi.openstack.org
     fsType: "ext3"
-    volumeHandle: "e6f95191-d58b-40c3-a191-9984ce7532e5" # UUID of Block Storage
+    volumeHandle: "a82dca95-d9b0-4c3f-8624-a62782257b43" # UUID of Block Storage
