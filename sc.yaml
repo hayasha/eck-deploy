@@ -6,3 +6,4 @@ provisioner: kubernetes.io/cinder
 parameters:
   type: General SSD
   availability: kr-pub-a
+allowVolumeExpansion: True
