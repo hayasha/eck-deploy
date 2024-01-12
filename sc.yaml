@@ -2,8 +2,27 @@ apiVersion: storage.k8s.io/v1
 kind: StorageClass
 metadata:
   name: sc-ssd
-provisioner: kubernetes.io/cinder
+provisioner: cinder.csi.openstack.org
 parameters:
   type: General SSD
   availability: kr-pub-a
 allowVolumeExpansion: True
+
+---
+
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: pv-static-001
+spec:
+  capacity:
+    storage: 10Gi
+  volumeMode: Filesystem
+  accessModes:
+    - ReadWriteOnce
+  persistentVolumeReclaimPolicy: Delete
+  storageClassName: sc-ssd
+  csi:
+    driver: cinder.csi.openstack.org
+    fsType: "ext3"
+    volumeHandle: "e6f95191-d58b-40c3-a191-9984ce7532e5" # UUID of Block Storage

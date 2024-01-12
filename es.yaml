@@ -13,6 +13,6 @@ spec:
           spec:
             accessModes:
               - ReadWriteOnce
-            storageClassName: standard
+            storageClassName: sc-ssd
       config:
         node.store.allow_mmap: false
