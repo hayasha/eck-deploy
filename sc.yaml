@@ -7,22 +7,3 @@ parameters:
   type: General SSD
   availability: kr-pub-a
 allowVolumeExpansion: True
-
----
-
-apiVersion: v1
-kind: PersistentVolume
-metadata:
-  name: pv-static-001
-spec:
-  capacity:
-    storage: 10Gi
-  volumeMode: Filesystem
-  accessModes:
-    - ReadWriteOnce
-  persistentVolumeReclaimPolicy: Delete
-  storageClassName: sc-ssd
-  csi:
-    driver: cinder.csi.openstack.org
-    fsType: "ext3"
-    volumeHandle: "a82dca95-d9b0-4c3f-8624-a62782257b43" # UUID of Block Storage
