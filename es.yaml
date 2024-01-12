@@ -28,10 +28,8 @@ spec:
                   value: '-Xms2g -Xmx2g'
               resources:
                 limits:
-                  cpu: '1'
                   memory: 4Gi
                 requests:
-                  cpu: '100m'
                   memory: 4Gi
           initContainers:
             - name: chown
