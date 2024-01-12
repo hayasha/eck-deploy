@@ -1,7 +1,7 @@
 apiVersion: storage.k8s.io/v1
 kind: StorageClass
 metadata:
-  name: sc-ssd
+  name: sc-ssd3
 provisioner: cinder.csi.openstack.org
 parameters:
   type: General SSD
@@ -21,7 +21,7 @@ spec:
   accessModes:
     - ReadWriteOnce
   persistentVolumeReclaimPolicy: Delete
-  storageClassName: sc-ssd
+  storageClassName: sc-ssd3
   csi:
     driver: cinder.csi.openstack.org
     fsType: "ext3"

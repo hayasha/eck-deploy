@@ -16,6 +16,6 @@ spec:
             resources:
               requests:
                 storage: 5Gi
-            storageClassName: sc-ssd
+            storageClassName: sc-ssd3
       config:
         node.store.allow_mmap: false
