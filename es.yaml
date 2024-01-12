@@ -13,6 +13,9 @@ spec:
           spec:
             accessModes:
               - ReadWriteOnce
-            storageClassName: sc-ssd2
+            resources:
+              requests:
+                storage: 5Gi
+            storageClassName: sc-ssd
       config:
         node.store.allow_mmap: false
