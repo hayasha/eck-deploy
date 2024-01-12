@@ -13,9 +13,6 @@ spec:
           spec:
             accessModes:
               - ReadWriteOnce
-            resources:
-              requests:
-                storage: 5Gi
             storageClassName: sc-ssd
       config:
         node.store.allow_mmap: false
