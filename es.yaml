@@ -20,7 +20,6 @@ spec:
       podTemplate:
         spec:
           securityContext:
-            privileged: true
             runAsUser: 0
             fsGroup: 0
           initContainers:
