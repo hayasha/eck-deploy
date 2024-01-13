@@ -17,15 +17,12 @@ spec:
               requests:
                 storage: 20Gi
             storageClassName: sc-ssd
-      config:
-        node.store.allow_mmap: false
       podTemplate:
         spec:
+          securityContext:
+            privileged: true
+            runAsUser: 0
+            fsGroup: 0
           initContainers:
             - name: sysctl
-              securityContext:
-                privileged: true
-                runAsUser: 0
               command: ['sh', '-c', 'sysctl -w vm.max_map_count=262144']
-            - name: chown
-              command: ['sh', '-c', 'chown elasticsearch:elasticsearch /usr/share/elasticsearch/data']
