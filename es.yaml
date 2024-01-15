@@ -16,7 +16,7 @@ spec:
             resources:
               requests:
                 storage: 30Gi
-            storageClassName: sc-ssd9
+            storageClassName: sc-ssd8
       podTemplate:
         spec:
           initContainers:
