@@ -15,8 +15,8 @@ spec:
               - ReadWriteOnce
             resources:
               requests:
-                storage: 20Gi
-            storageClassName: sc-ssd
+                storage: 30Gi
+            storageClassName: sc-ssd2
       podTemplate:
         spec:
           initContainers:
