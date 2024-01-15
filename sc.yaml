@@ -1,7 +1,7 @@
 apiVersion: storage.k8s.io/v1
 kind: StorageClass
 metadata:
-  name: sc-ssd8
+  name: sc-sz
 provisioner: cinder.csi.openstack.org
 parameters:
   type: General SSD
