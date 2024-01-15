@@ -5,5 +5,5 @@ metadata:
 provisioner: cinder.csi.openstack.org
 parameters:
   type: General SSD
-  availability: kr-pub-a
+  availability: kr-pub-b
 allowVolumeExpansion: True
