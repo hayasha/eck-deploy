@@ -17,7 +17,7 @@ spec:
             resources:
               requests:
                 storage: 30Gi
-            storageClassName: sc-sz
+            storageClassName: afs
       podTemplate:
         spec:
           nodeSelector:
