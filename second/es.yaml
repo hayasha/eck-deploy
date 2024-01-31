@@ -20,8 +20,6 @@ spec:
             storageClassName: afs
       podTemplate:
         spec:
-          nodeSelector:
-            nodeRole: eck
           initContainers:
             - name: sysctl
               securityContext:
