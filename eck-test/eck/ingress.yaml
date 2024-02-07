@@ -33,3 +33,11 @@ spec:
                 name: quickstart-kb-http
                 port:
                   number: 5601
+    - host: fleet.hayasha.store
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name:
